@@ -1,0 +1,199 @@
+/*@!Encoding:1252*/
+http://vector.com/portal/medien/vector_cantech/faq/ProgrammingWithCAPL.pdf
+
+variables {
+ msTimer T1;
+}
+on timer T1{
+ message 100 M100 = {dlc = 4, word(0) = 0xaaaa, word(2)= 0x5555};
+ setTimer(T1,50);
+ M100.byte(0) = M100.byte(0) + 1;
+ output(M100);
+}
+
+on start {
+ setTimer(T1,50);
+}
+
+
+Functions:
+void myFunc()
+{
+ byte value; // variable declarations
+int x, y;
+ value = 10; // variable initializations
+ x = 0;
+ y = 5;
+ // Main code of the function
+ . . .
+}
+
+// Message formats for --this --
+on message 555
+{
+ byte val;
+ val = 0;
+/* checks to see if the message was received on CAN channel 1*/
+ if (this.CAN == 1)
+ {
+// sets “val” to the value of the first data byte in the CAN message
+ val = this.byte(0);
+ }
+}
+
+
+on envVar LEDSwitch /* Triggered when LED Switch changes */
+{
+ int val;
+ val = getValue(this);
+}
+
+
+// Function Overloading
+void printme (double num)
+{
+ write(“Floating point %f”, num);
+}
+void printme (int num, char units[])
+{
+ write(“%d %s”, num, units);
+}
+
+
+// Key Pressed Events
+
+variables
+{
+ msTimer mytimer; // timer
+ message 100 msg; // CAN message
+}
+on key F1
+{
+ setTimer(mytimer, 100); // start 100 ms timer
+ write(“F1 pressed”); // output to Write window CAPL Functions
+}
+
+
+ on timer mytimer
+{
+ if (keypressed()) // true if any key is pressed
+ {
+ setTimer(mytimer, 100); // restart timer
+ output(msg); // send message while key is pressed
+ }
+ else write(“F1 released”);
+} 
+
+
+
+//Summation of Elements:
+variables
+{
+ int mat1[2][2] = {{1,2}, {3,4}};
+ int mat2[3][3] = {{1,2,3}, {4,5,6}, {7,8,9}};
+}
+void sum(int matrix[][])
+{
+ int i, j;
+ int answer;
+ answer = 0;
+ for (i = 0; i < elCount(matrix); i++)
+ {
+ for (j = 0; j < elCount(matrix[i]); j++)
+ {
+ answer += matrix[i][j];
+ }
+ }
+ write(“The sum is %d”, answer);
+}
+
+// System Events
+/*
+	Initialization
+	Start
+	Stop
+
+*/
+
+
+// Timer Events
+on start
+{
+ setTimer(timer1, 100); // initialize timer to run for 100 msec
+}
+on timer timer1
+{
+ msg1.byte(0) = msg1.byte(0) + 1; // increment the data
+ output(msg1); // output message
+ setTimer(timer1, 100); // reset the timer
+} 
+
+
+/* File IO for CAPL
+
+
+*/
+
+variables
+{
+ long cyclicPeriod=0;
+ long prePeriod=0;
+ dword readHandle = 0;
+ byte endOfFileFlag=0;
+ char signalBuffer[24];  CAPL Program Examples
+Programming With CAPL
+118
+ msTimer cyclicTimer;
+ message ABSdata msg1;
+}
+on start
+{
+// initialize handle to data file opened in ASCII mode
+ readHandle = openFileRead ("random.asc", 0);
+// the next line of code is also used to skip the first row of data in the data file and to make sure the handle is
+valid
+ if (readHandle != 0 && fileGetString(timeBuffer, elcount(timeBuffer), readHandle) != 0)
+ // set transmission to trigger after 100 ms
+ settimer(cyclicTimer, 100);
+ else
+ write("Data file cannot be opened for read access.");
+} 
+on timer cyclicTimer
+{
+ getData();
+ if (endOfFileFlag != 1)
+ {
+ output(msg1);
+ settimer(cyclicTimer, cyclicPeriod);
+ }
+ else
+ endoffileconfirm();
+}
+on stopMeasurement
+{
+// close handle to data file opened in ASCII mode
+ fileClose(readHandle);
+}
+getData ()
+{
+ int i;
+ i = 0;
+ //store data into timeBuffer
+ if (readHandle != 0 && fileGetString(timeBuffer, elcount(timeBuffer), readHandle) != 0 )
+ {
+// convert period from 10 microseconds unit to milliseconds unit
+ cyclicPeriod = (atol(timeBuffer) - prePeriod) / 100;
+ prePeriod = atol(timeBuffer);
+ while (timeBuffer[i] != 0x9) {i = i + 1;}; // skip the time stamp
+ i = i + 1;
+ signalBuffer[0] = timeBuffer[i];
+ signalBuffer[1] = timeBuffer[i+1];
+ signalBuffer[2] = timeBuffer[i+2];
+ msg1.CarSpeed = atol(signalBuffer);
+ }
+ else
+ {
+ // set end of file flag if end of file is reached
+ write("End of data file reached, timer cancelled.");
+ endOfFileFlag = 1;
+ } 

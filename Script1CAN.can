@@ -1,0 +1,32 @@
+/*@!Encoding:1252*/
+http://www.can-cia.org/fileadmin/cia/files/Newsletter_02-14/2-14_p40_tips-and-tricks-for-the-use-of-capl.pdf
+
+variables
+{
+ const long kOFF=0;
+ const long kON = 1;
+
+}
+
+on message EngineState{
+  @sysvar::Engine::EngineSpeedDspMeter =this.EngineSpeed /1000.0;
+}
+
+on message LightState {
+  if (this.dir ==RX) {
+     SetLightDsp(this.Headlight, this.FlashLight);
+  }
+  else {
+     write("Error: LightState TX received by Node %NODE_NAME%");
+  }
+}
+
+
+SetLightDsp(long headLight, long hazardFlasher){
+  long tmpLightDsp;
+   tmpLightDsp = 0;
+   if(headLight == KON)  tmpLightDsp =4;
+   if(hazardFlasher== kON) (tmpLightDsp =3)
+   @sysvar::Lights::LightDisplay = tmpLightDsp;
+
+}
