@@ -1,0 +1,96 @@
+https://www.sparkfun.com/datasheets/Widgets/ELM327_AT_Commands.pdf http://www.elmelectronics.com/DSheets/ELM327DS.pdf
+
+All commands except OBD data commands need to be preceded by 'AT'.
+
+General Commands
+@1 - display device description
+
+@2 - display the device identifier
+
+@3 - store the device identifier
+
+{carriage return} - repeat last command
+
+BRD hh - try baud rate divisor hh
+
+BRT hh - set baud rate handshake timeout
+
+D - set all to defaults
+
+WS - warm start
+
+Z - reset all
+
+E# - echo 0 = off, 1 = on
+
+L# - linefeed 0 = off, 1 = on
+
+FE - forget events
+
+I - print the ID
+
+LP - go to low power mode
+
+M# - memory 0 = off, 1 = on
+
+RD - read the stored dara
+
+SD hh - store data byte hh
+
+OBD Commands
+AL - Allow Long (<7 Byte) messages
+
+NL - Allow only normal Length messages
+
+AR - automatic receive
+
+AT # - Adaptive Timing Control 0 = off, 1 = auto1, 2 = auto2
+
+BD - perform a buffer dump
+
+BI - bypass the initialization sequence
+
+DP - describe current protocol
+
+DPN - describe protocol by number
+
+SP ?? - set protocol ??: Ah = Auto,h; h = h; 00 = Auto (h = hex number)
+
+TP Ah - try protocol h with auto search
+
+TP h - tryp protocol h
+
+H# - header control 0 = off, 1 = on
+
+MA - monitor all
+
+MR hh - monitor for receiver = hh
+
+MT hh - monitor for transmitter = hh
+
+PC - protocol close
+
+R# - responses 0 = off, 1 = on
+
+RA hh - set the receive address to hh
+
+S# - print spaces 0 = off, 1 = on
+
+SH xx yy zz - set header
+
+SH yzz - set header
+
+SR hh - set receive address to hh
+
+SS - set standard search order (j1978)
+
+ST hh - set timeout to hh x 4 sec
+
+TA hh - set tester address to hh
+
+Voltage
+CV dddd - Calibrate the Voltage to dd.dd volts
+CV 0000 - Restore CV value to factory setting
+RV - Read the Voltage
+OBD Data Commands
+01 hh - Read PID 0xhh
