@@ -10,7 +10,9 @@ http://www.all4tec.com/sites/default/files/an005_mtl_how_to_use_python_functions
 
 http://www.all4tec.com/sites/default/files/matelo_-_model-based_the_gap_from_the_requirements_to_teststand_test_sequences.pdf
 
+http://www.elmelectronics.com/DSheets/ELM327DS.pdf
 
+https://github.com/deshi-basara/libreXC/wiki/ELM327-AT-Command-Set
 
 https://github.com/hardbyte/python-can
 
