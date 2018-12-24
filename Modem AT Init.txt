@@ -94,3 +94,11 @@ CV 0000 - Restore CV value to factory setting
 RV - Read the Voltage
 OBD Data Commands
 01 hh - Read PID 0xhh
+
+ATD
+ATZ
+AT E0
+AT L0
+AT S0
+AT H0
+AT SP 0
