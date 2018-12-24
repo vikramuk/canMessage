@@ -31,3 +31,11 @@ http://ceb.ac.in/knowledge-center/E-BOOKS/Modern%20Electric,%20Hybrid%20Electric
 #Added DTC Codes Link
 #https://github.com/MitchellKopczyk/OBDIIToolKit/tree/master/Data/Diagnostic%20Trouble%20Codes
 
+
+http://tucrrc.utulsa.edu/J1939Database.html
+
+http://alvarestech.com/temp/murilo/
+
+https://cecas.clemson.edu/cvel/auto/info/books.html
+
+http://alvarestech.com/temp/murilo/Advanced%20Automotive%20Fault%20Diagnosis,%202nd%20Ed.%20-%20(Malestrom).pdf
