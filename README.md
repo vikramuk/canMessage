@@ -27,3 +27,6 @@ www.hljp.edu.cn/attachment/20120927085611850.pdf
 http://ceb.ac.in/knowledge-center/E-BOOKS/
 
 http://ceb.ac.in/knowledge-center/E-BOOKS/Modern%20Electric,%20Hybrid%20Electric%20&%20Fuel%20Cell%20Vehicles%20-%20Mehrdad%20Ehsani.pdf
+
+#Added DTC Codes Link
+# https://github.com/MitchellKopczyk/OBDIIToolKit/tree/master/Data/Diagnostic%20Trouble%20Codes
