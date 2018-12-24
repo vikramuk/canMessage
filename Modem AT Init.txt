@@ -102,3 +102,7 @@ AT L0
 AT S0
 AT H0
 AT SP 0
+
+
+Additional Links for STN1110
+# https://github.com/nabilt/Bluetooth-ODB-2-Adapter/blob/master/scripts/obd.py
