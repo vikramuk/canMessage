@@ -5,7 +5,7 @@ import serial
 # Open bluetooth serial port
 # Make sure you pair to the device first using the passcode 1234
 # and change "/dev/cu.linvor-DevB" to your serial port
-ser = serial.Serial("/dev/cu.linvor-DevB", baudrate=38400, timeout=1, bytesize=8, parity='N', stopbits=1)
+ser = serial.Serial("/dev/PORT", baudrate=38400, timeout=1, bytesize=8, parity='N', stopbits=1)
 # Request the RPM
 # See http://en.wikipedia.org/wiki/OBD-II_PIDs and ELM327DS.pdf in the doc directory
 ser.write('01 0C\r') 
