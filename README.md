@@ -39,3 +39,7 @@ http://alvarestech.com/temp/murilo/
 https://cecas.clemson.edu/cvel/auto/info/books.html
 
 http://alvarestech.com/temp/murilo/Advanced%20Automotive%20Fault%20Diagnosis,%202nd%20Ed.%20-%20(Malestrom).pdf
+
+https://stackoverflow.com/questions/23076806/elm327-can-command-to-switch-headlights-pernament-on  -CAN Messages
+
+https://github.com/fenugrec/freediag
