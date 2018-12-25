@@ -106,3 +106,18 @@ AT SP 0
 
 Additional Links for STN1110
 # https://github.com/nabilt/Bluetooth-ODB-2-Adapter/blob/master/scripts/obd.py
+
+https://stackoverflow.com/questions/23076806/elm327-can-command-to-switch-headlights-pernament-on
+AT Z                         reset the chipset (AT Z)
+AT E0                        stopped it from echoing back whatever you write (AT E0)
+AT L1                        turned line endings on, so its reply doesn't overwrite your command in temrinal (AT L1)
+AT SP 0			     set protocol to "auto" (AT SP 0)
+0100                   initialize the bus (0100) (okay, not really, but this helps the chipset determine the protocol)
+AT SH 625                    set the CAN message header to 625 (AT SH 625)
+
+
+
+
+
+
+
