@@ -43,3 +43,14 @@ http://alvarestech.com/temp/murilo/Advanced%20Automotive%20Fault%20Diagnosis,%20
 https://stackoverflow.com/questions/23076806/elm327-can-command-to-switch-headlights-pernament-on  -CAN Messages
 
 https://github.com/fenugrec/freediag
+
+https://www.elmelectronics.com/help/notes/
+
+http://dthoughts.com/blog/2014/11/06/obd-scanner-using-elm327/
+
+OBD Codes by Manufacturer: http://www.totalcardiagnostics.com/files/OBD2_protocols.pdf
+
+CAN Systems Engineering, From Theory to Practical Applications
+
+http://www.volkspage.net/technik/ssp/ssp/SSP_238.pdf
+
