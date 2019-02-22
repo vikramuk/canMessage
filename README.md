@@ -54,3 +54,6 @@ CAN Systems Engineering, From Theory to Practical Applications
 
 http://www.volkspage.net/technik/ssp/ssp/SSP_238.pdf
 
+For the Intrepid:
+http://socialledge.com/sjsu/index.php/Industrial_Application_using_CAN_Bus
+http://socialledge.com/sjsu/index.php/BusMaster
